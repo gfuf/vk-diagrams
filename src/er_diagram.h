@@ -14,14 +14,16 @@ class er
 
   std::vector<relation> *relations;
   std::vector<void*> *atributs;
+  std::vector<std::string> *types;
   int i_at;
   int i_re;
  public:
   er();
   ~er();
   int insert_relatin(std::string type,er *other);
-  int insert_atribut(void* atribute);
+  int insert_atribut(void* atribute,std::string type);
   int return_amount_atributs();
+  std::string return_atribut_type(int i);
   int return_amount_relations();
   void* return_atribut(int i);
   er* return_relation(int i);

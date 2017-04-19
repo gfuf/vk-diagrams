@@ -5,6 +5,7 @@ er::er()
     i_re=0;
     relations=new std::vector<relation>;
     atributs=new std::vector<void*>;
+    types=new std::vector<std::string>;
 }
 
 er::~er() {
@@ -26,9 +27,10 @@ int er::insert_relatin(std::string type,er *other)
   return 0;
 }
 
-int er::insert_atribut(void* atribute)
+int er::insert_atribut(void* atribute,std::string type)
 {
   atributs->push_back(atribute);
+  types->push_back(type);
   i_at++;
   return 0;
 }
@@ -50,6 +52,11 @@ er* er::return_relation(int i)
 void* er::return_atribut(int i)
 {
     return atributs->at(i);
+}
+
+std::string er::return_atribut_type(int i)
+{
+    return types->at(i);
 }
 
 std::string er::return_relation_type(int i)
